@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#15110e">
+<title>Hell Brothers Rider – Bike Adventure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="c"></canvas>
+  <div id="hud">
+    <div id="top"><div id="speed"><b id="spd">0</b><small>km/h</small></div><div id="pos">1<small>/4</small></div></div>
+    <div id="prog"><i id="pf"></i></div>
+    <div id="radio"><button id="prev" aria-label="Canción anterior">‹</button><span id="song">♪</span><button id="next" aria-label="Siguiente canción">›</button><button id="mute" aria-label="Silenciar">♫</button></div>
+    <div id="alert">¡POLICÍA!</div>
+    <div id="toast"></div>
+  </div>
+  <div id="ctl">
+    <div class="pad"><button id="bl" aria-label="Izquierda">◀</button><button id="br" aria-label="Derecha">▶</button></div>
+    <div class="pad"><button id="bb">FRENO</button><button id="bg">GAS</button><button id="turbo" aria-label="Turbo (Mayús o X)" title="Turbo: Mayús o X">TURBO</button></div>
+  </div>
+  
+  <!-- NUEVO MENÚ PRINCIPAL -->
+  <div id="menu" class="ov">
+    <div class="garage-wrap">
+      <div class="garage-title">
+        <h1>Hell Brothers<span>Rider</span></h1>
+      </div>
+      <canvas id="garage-canvas"></canvas>
+    </div>
+    
+    <div class="menu-panel">
+      <div class="sel-row">
+        <span class="lbl">Piloto</span>
+        <div class="row-multi">
+          <input id="nm" maxlength="12" autocomplete="off" placeholder="Tu Nombre">
+          <input type="color" id="col" aria-label="Color de la moto">
+        </div>
+      </div>
+      
+      <div class="sel-row">
+        <span class="lbl">Moto</span>
+        <div class="sel-ctrl">
+          <button onclick="changeBike(-1)">◀</button>
+          <span class="sel-text" id="sel-m">Chopper</span>
+          <button onclick="changeBike(1)">▶</button>
+        </div>
+      </div>
+
+      <div class="sel-row">
+        <span class="lbl">Nivel</span>
+        <div class="sel-ctrl">
+          <button onclick="changeLevel(-1)">◀</button>
+          <span class="sel-text" id="sel-l">Carretera</span>
+          <button onclick="changeLevel(1)">▶</button>
+        </div>
+      </div>
+      <p class="level-desc" id="level-desc"></p>
+
+      <div class="sel-row">
+        <span class="lbl">Música</span>
+        <div class="sel-ctrl">
+          <button onclick="changeSong(-1)">◀</button>
+          <span class="sel-text" id="sel-a">Rock Integrado</span>
+          <button onclick="changeSong(1)">▶</button>
+        </div>
+      </div>
+
+      <button class="play-btn" id="go">ARRANCAR MOTOR</button>
+      <p class="hint" id="best"></p>
+    </div>
+  </div>
+
+  <div id="end" class="ov hidden"><div class="in">
+    <h1 id="etitle">Fin</h1>
+    <p id="emsg"></p>
+    <div id="stats"></div>
+    <button class="btn" id="nextl">Siguiente nivel</button>
+    <button class="btn" id="again">Otra vez</button>
+    <button class="btn alt" id="menub">Cambiar moto o música</button>
+  </div></div>
+</div>
+<script src="game.js" defer></script>
+</body>
+</html>
